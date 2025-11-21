@@ -1,3 +1,4 @@
+// --- POMOCNÉ FUNKCE PRO NAČÍTÁNÍ ---
 function loadCss(filename) {
     const link = document.createElement('link');
     link.rel = 'stylesheet';
@@ -17,6 +18,7 @@ async function loadHtml(url, elementId) {
         const html = await response.text();
         document.getElementById(elementId).innerHTML = html;
         
+        // Inicializace po načtení feedu
         if (elementId === 'main-feed-container') {
             setTimeout(() => {
                 const postList = document.getElementById('post-list-container');
@@ -34,20 +36,18 @@ async function loadHtml(url, elementId) {
     }
 }
 
-// -------------------------------------------------------------
-// KLÍČOVÉ OPRAVENÉ CESTY ZDE
-// -------------------------------------------------------------
+// --- HLAVNÍ FUNKCE (OPRAVENÉ CESTY) ---
 window.onload = function() {
-    // 1. CSS SOUBORY JSOU NYNÍ PŘÍMO V HLAVNÍ SLOŽCE
+    // Načítání CSS a HTML z hlavní složky (opravené cesty)
     loadCss('base.css');
     loadCss('components.css');
     
-    // 2. HTML KOMPONENTY JSOU TAKÉ PŘÍMO V HLAVNÍ SLOŽCE
     loadHtml('pulsstar-sidebar.html', 'sidebar-container');
     loadHtml('pulsstar-feed.html', 'main-feed-container');
 };
 
 
+// --- STAVOVÉ PROMĚNNÉ ---
 let interactions = {
     'post-1': { like: 0, heart: 0, dislike: 0 },
     'post-2': { like: 0, heart: 0, dislike: 0 },
@@ -57,6 +57,7 @@ let interactions = {
 let postCounter = 5; 
 
 
+// --- FUNKCE PRO TVORBU NOVÉHO POSTU ---
 function handleEnter(event) {
     if (event.key === 'Enter') {
         event.preventDefault(); 
@@ -175,6 +176,7 @@ function publishPostFromBox() {
     resetPostInput(); 
 }
 
+// --- INTERAKCE S POSTY ---
 function interact(postId, type) {
     if (interactions[postId] && interactions[postId].hasOwnProperty(type)) {
         interactions[postId][type]++;
@@ -185,6 +187,7 @@ function interact(postId, type) {
     }
 }
 
+// --- FUNKCE PRO KOMENTÁŘE ---
 function toggleComments(postId) {
     const commentsSection = document.getElementById(`comments-${postId}`);
     const commentInputDiv = commentsSection ? commentsSection.querySelector('.comment-input') : null;
@@ -234,7 +237,27 @@ function addComment(postId, text) {
     }
 }
 
-function showChat() { alert("Otevírám Soukromé Zprávy (simulace)"); }
+// --- FUNKCE PRO SIDEBAR (UPRAVENÉ) ---
+
+// 1. Profil (Main Page) - Stará funkce 'showChat' se přejmenuje, aby odpovídala novému HTML
+function gotoProfile() { 
+    alert("Přesun na profilovou stránku (Main Page) - simulace"); 
+}
+
+// 2. Messenger (Soukromé Zprávy) - Nová funkce
+function openMessenger() {
+    alert("Otevírám Soukromé Zprávy (Messenger) - Simulace chatu.");
+    // Zde by v reálné aplikaci byl kód pro otevření chatu a reset počítadla
+}
+
+// 3. Notifikace (Upozornění) - Nová funkce
+function openNotifications() {
+    alert("Otevírám Notifikace (Upozornění) - Simulace seznamu událostí.");
+    // Zde by v reálné aplikaci byl kód pro zobrazení upozornění a reset počítadla
+}
+
+
+// --- PŘÍDAVNÉ FUNKCE (ZŮSTÁVAJÍ) ---
 function openEventModal() { alert("Otevírám dialog pro vytvoření události (simulace)"); }
 function gotoGallery() { alert("Otevírám galerii/nahrávání fotek (simulace)"); }
 function addLocation() { alert("Přidávám polohu (simulace)"); }
