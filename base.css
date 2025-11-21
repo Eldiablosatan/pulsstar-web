@@ -1,0 +1,54 @@
+:root {
+    --background-dark: #0A0012;
+    --primary-neon-purple: #FF00FF;
+    --secondary-neon-blue: #00FFFF;
+    --accent-green: #00FF99; 
+    --dark-panel: #1A0028;
+    --border-glitch: #4C006B;
+    
+    --user-name-light-purple: #FFCCFF; 
+    --like-blue-neon: #99FFFF; 
+    --pulse-red-neon: #FF3366; 
+    --dislike-black: #000000; 
+    --comment-yellow-neon: #FFFF66; 
+
+    --font-main: 'BlinkMacSystemFont', sans-serif;
+    --border-radius-soft: 8px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    font-family: var(--font-main);
+    background-color: var(--background-dark);
+    color: var(--accent-green); 
+    line-height: 1.6;
+    height: 100vh;
+}
+
+#app-container {
+    display: grid;
+    grid-template-columns: 280px 1fr; 
+    max-width: 1600px;
+    margin: 0 auto;
+    min-height: 100vh; 
+    border-left: 1px solid var(--border-glitch);
+}
+
+#sidebar-container { 
+     padding: 25px; 
+     background-color: var(--dark-panel); 
+     min-height: 100vh; 
+     position: sticky; 
+     top: 0; 
+     border-right: 2px solid var(--border-glitch); 
+     box-shadow: 2px 0 20px rgba(255, 0, 255, 0.2); 
+     overflow-y: auto; 
+}
+
+#main-feed-container {
+    background-color: var(--background-dark);
+    overflow-y: auto; 
+    min-height: 100vh;
+    padding: 0 30px; 
+    border-right: 1px solid var(--border-glitch); 
+}

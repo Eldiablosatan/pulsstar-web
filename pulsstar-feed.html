@@ -1,0 +1,137 @@
+<div id="fixed-feed-header">
+    <h2>Feed</h2>
+    
+    <div id="create-box" onclick="activatePostInput()">
+        
+        <div id="collapsed-create-box">
+            <img class="user-avatar" src="https://via.placeholder.com/40/00FFFF/0A0012?text=?" alt="Zástupný avatar">
+            <div id="initial-prompt">
+                Vyklop to! Zadej data pro přenos do sítě...
+            </div>
+            <span class="initial-photo-icon" onclick="event.stopPropagation(); gotoGallery();">📷</span>
+        </div>
+        
+        <div id="post-input-area" style="display: none;"> 
+            <textarea id="post-textarea" placeholder="Zadej data pro přenos do sítě..." rows="3"></textarea>
+            <div id="post-actions-row">
+                <div class="icon-group">
+                    <span class="action-icon" title="Fotka/Video" onclick="event.stopPropagation(); gotoGallery();">📷</span>
+                    <span class="action-icon" title="Přidat Polohu" onclick="event.stopPropagation(); addLocation();">📍</span>
+                    <span class="action-icon" title="GIF" onclick="event.stopPropagation(); gotoGifGallery();">🖼️</span>
+                    <span class="action-icon" title="Událost" onclick="event.stopPropagation(); openEventModal();">📅</span>
+                </div>
+                <button class="publish-btn-small" onclick="event.stopPropagation(); publishPostFromBox()">Publikovat</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="post-list-container">
+    
+    <div class="post" id="post-1">
+        <div class="post-header">@SynthWaveRider | Uzel 0.1</div>
+        <div class="post-content">
+            <p>Systém je online! Cítím pulz, jako by se rodila nová hvězda. 💫 #PulsStar #DatovýTok</p>
+        </div>
+        
+        <div class="post-actions">
+            <div class="action-button-group">
+                <button class="action-btn" data-type="like" onclick="interact('post-1', 'like')">👍 Like</button>
+                <button class="action-btn" data-type="heart" onclick="interact('post-1', 'heart')">❤️ Pulz</button>
+                <button class="action-btn" data-type="dislike" onclick="interact('post-1', 'dislike')">👎 Dislike</button>
+                <button class="action-btn" onclick="toggleComments('post-1')">💬 Komentovat</button>
+            </div>
+            <div class="counter-group">
+                <span class="action-icon">👍</span> <span id="post-1-likes" class="counter">0</span>
+                <span class="action-icon">❤️</span> <span id="post-1-hearts" class="counter">0</span>
+                <span class="action-icon">👎</span> <span id="post-1-dislikes" class="counter">0</span>
+            </div>
+        </div>
+        <div class="comments-section" id="comments-post-1">
+            <div class="comment-input"> 
+                <input type="text" placeholder="Odeslat odpověď...">
+                <button onclick="addComment('post-1', this.previousElementSibling.value)">Odeslat</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="post" id="post-3">
+        <div class="post-header">@TechNomad | Sektor Gama</div>
+        <div class="post-content">
+            <p>Potřebuji nový upgrade jádra. Systém běží na 80% kapacity. Kde najdu ovladače? #Hardware #Upgrade</p>
+        </div>
+        <div class="post-actions">
+            <div class="action-button-group">
+                <button class="action-btn" data-type="like" onclick="interact('post-3', 'like')">👍 Like</button>
+                <button class="action-btn" data-type="heart" onclick="interact('post-3', 'heart')">❤️ Pulz</button>
+                <button class="action-btn" data-type="dislike" onclick="interact('post-3', 'dislike')">👎 Dislike</button>
+                <button class="action-btn" onclick="toggleComments('post-3')">💬 Komentovat</button>
+            </div>
+            <div class="counter-group">
+                <span class="action-icon">👍</span> <span id="post-3-likes" class="counter">0</span>
+                <span class="action-icon">❤️</span> <span id="post-3-hearts" class="counter">0</span>
+                <span class="action-icon">👎</span> <span id="post-3-dislikes" class="counter">0</span>
+            </div>
+        </div>
+        <div class="comments-section" id="comments-post-3">
+            <div class="comment-input">
+                <input type="text" placeholder="Odeslat odpověď...">
+                <button onclick="addComment('post-3', this.previousElementSibling.value)">Odeslat</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="post" id="post-2">
+        <div class="post-header">@QuantumPixel_X | Sektor Beta</div>
+        <div class="post-content media-content">
+            <p>Detekován nový vizuální proud. Překrásná holografická projekce! 🌠</p>
+            <img src="https://via.placeholder.com/600x400/1A0028/00FFFF?text=Holograficka+Projekce+Dat" alt="Holografická projekce" style="width: 100%; border-radius: 6px; margin-top: 15px;">
+        </div>
+        <div class="post-actions">
+            <div class="action-button-group">
+                <button class="action-btn" data-type="like" onclick="interact('post-2', 'like')">👍 Like</button>
+                <button class="action-btn" data-type="heart" onclick="interact('post-2', 'heart')">❤️ Pulz</button>
+                <button class="action-btn" data-type="dislike" onclick="interact('post-2', 'dislike')">👎 Dislike</button>
+                <button class="action-btn" onclick="toggleComments('post-2')">💬 Komentovat</button>
+            </div>
+            <div class="counter-group">
+                <span class="action-icon">👍</span> <span id="post-2-likes" class="counter">0</span>
+                <span class="action-icon">❤️</span> <span id="post-2-hearts" class="counter">0</span>
+                <span class="action-icon">👎</span> <span id="post-2-dislikes" class="counter">0</span>
+            </div>
+        </div>
+        <div class="comments-section" id="comments-post-2">
+            <div class="comment"><strong>@Cypher_Droid:</strong> Optimalizace GPU nutná pro plné vykreslení.</div>
+            <div class="comment-input">
+                <input type="text" placeholder="Odeslat odpověď...">
+                <button onclick="addComment('post-2', this.previousElementSibling.value)">Odeslat</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="post" id="post-4">
+        <div class="post-header">@Data_Miner_7 | Hluboký Sektor</div>
+        <div class="post-content">
+            <p>Nyní, když je UI fixní, je to mnohem lepší zážitek. Skvělá práce, systémoví inženýři! ✨</p>
+        </div>
+        <div class="post-actions">
+            <div class="action-button-group">
+                <button class="action-btn" data-type="like" onclick="interact('post-4', 'like')">👍 Like</button>
+                <button class="action-btn" data-type="heart" onclick="interact('post-4', 'heart')">❤️ Pulz</button>
+                <button class="action-btn" data-type="dislike" onclick="interact('post-4', 'dislike')">👎 Dislike</button>
+                <button class="action-btn" onclick="toggleComments('post-4')">💬 Komentovat</button>
+            </div>
+            <div class="counter-group">
+                <span class="action-icon">👍</span> <span id="post-4-likes" class="counter">0</span>
+                <span class="action-icon">❤️</span> <span id="post-4-hearts" class="counter">0</span>
+                <span class="action-icon">👎</span> <span id="post-4-dislikes" class="counter">0</span>
+            </div>
+        </div>
+        <div class="comments-section" id="comments-post-4">
+            <div class="comment-input">
+                <input type="text" placeholder="Odeslat odpověď...">
+                <button onclick="addComment('post-4', this.previousElementSibling.value)">Odeslat</button>
+            </div>
+        </div>
+    </div>
+</div>

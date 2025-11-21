@@ -1,0 +1,48 @@
+.logo-container { display: flex; align-items: center; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 2px solid var(--primary-neon-purple); box-shadow: 0 5px 10px -5px rgba(255, 0, 255, 0.5); }
+.logo-img { width: 45px; height: 45px; margin-right: 15px; border: 3px solid var(--secondary-neon-blue); box-shadow: 0 0 15px var(--secondary-neon-blue); border-radius: 50%; }
+.logo-text { font-size: 1.8em; font-weight: bold; color: var(--primary-neon-purple); text-shadow: 0 0 10px var(--primary-neon-purple), 0 0 5px var(--secondary-neon-blue); }
+.search-box { display: flex; margin-bottom: 30px; border: 2px solid var(--accent-green); border-radius: 25px; overflow: hidden; box-shadow: 0 0 10px rgba(0, 255, 153, 0.7); }
+.search-box input[type="text"] { flex-grow: 1; padding: 10px 15px; background-color: var(--background-dark); color: var(--accent-green); border: none; outline: none; font-size: 1em; }
+.search-box .search-btn { background-color: var(--accent-green); color: var(--dark-panel); border: none; padding: 10px 15px; cursor: pointer; font-size: 1.2em; font-weight: bold; transition: background-color 0.2s; }
+nav ul { list-style: none; padding-top: 20px; border-top: 1px solid var(--border-glitch); }
+nav ul li a { display: block; padding: 12px 10px; text-decoration: none; color: var(--accent-green); font-size: 1.1em; border-radius: 5px; transition: background-color 0.2s, color 0.2s, box-shadow 0.2s; }
+nav ul li a:hover { background-color: rgba(0, 255, 153, 0.1); color: var(--comment-yellow-neon); box-shadow: 0 0 10px rgba(255, 255, 102, 0.5); }
+
+#fixed-feed-header { position: sticky; top: 0; z-index: 10; background-color: var(--background-dark); padding: 30px 0 0 0; box-shadow: 0 8px 10px -5px rgba(0, 0, 0, 0.5); }
+.post { background-color: var(--dark-panel); border-radius: var(--border-radius-soft); padding: 25px; margin-bottom: 35px; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.7); border: 1px solid var(--border-glitch); }
+.post-header { font-weight: bold; color: var(--user-name-light-purple); margin-bottom: 18px; font-size: 1.2em; text-shadow: 0 0 3px var(--user-name-light-purple); }
+
+#create-box {
+    cursor: pointer; margin: 30px 0; padding: 15px 20px; background-color: var(--dark-panel); border-radius: var(--border-radius-soft); border: 2px solid var(--primary-neon-purple); box-shadow: 0 0 15px rgba(255, 0, 255, 0.5); transition: all 0.2s;
+    display: flex; flex-direction: column; align-items: flex-start; min-height: 60px; 
+}
+#create-box:hover { box-shadow: 0 0 25px var(--primary-neon-purple), 0 0 5px var(--secondary-neon-blue); border-color: var(--secondary-neon-blue); }
+#collapsed-create-box { display: flex; align-items: center; justify-content: space-between; width: 100%; }
+.user-avatar { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; margin-right: 15px; border: 2px solid var(--accent-green); box-shadow: 0 0 8px var(--accent-green); flex-shrink: 0; }
+#initial-prompt { flex-grow: 1; text-align: left; font-size: 1.1em; font-weight: bold; color: var(--comment-yellow-neon); text-shadow: 0 0 5px rgba(255, 255, 102, 0.5); line-height: 1.4; margin-right: 15px; }
+.initial-photo-icon { font-size: 1.8em; color: var(--secondary-neon-blue); text-shadow: 0 0 10px var(--secondary-neon-blue); flex-shrink: 0; transition: transform 0.2s; cursor: pointer; }
+#post-input-area { width: 100%; display: none; padding-top: 15px; }
+#post-textarea { width: 100%; min-height: 100px; background-color: var(--background-dark); border: 1px solid var(--border-glitch); color: var(--accent-green); font-family: var(--font-main); font-size: 1.1em; padding: 10px; border-radius: 5px; resize: none; margin-bottom: 15px; border-right: 3px solid var(--secondary-neon-blue); outline: none; }
+#post-actions-row { display: flex; justify-content: space-between; align-items: center; width: 100%; }
+.icon-group { display: flex; gap: 10px; }
+.action-icon { font-size: 1.5em; color: var(--accent-green); cursor: pointer; padding: 5px; transition: color 0.2s, transform 0.2s; }
+.publish-btn-small { background: linear-gradient(45deg, var(--primary-neon-purple), var(--secondary-neon-blue)); color: var(--background-dark); border: none; padding: 8px 15px; border-radius: 20px; font-weight: bold; cursor: pointer; text-transform: uppercase; box-shadow: 0 0 10px rgba(255, 0, 255, 0.5); }
+
+.post-actions {
+    display: flex; align-items: center; gap: 15px; padding-top: 15px; border-top: 1px solid var(--border-glitch); justify-content: space-between; 
+}
+.action-button-group { display: flex; gap: 10px; }
+.counter-group { display: flex; align-items: center; gap: 10px; font-size: 1.05em; }
+.action-btn { background: none; border: 1px solid; padding: 5px 10px; border-radius: 4px; font-size: 0.9em; font-weight: bold; cursor: pointer; transition: background-color 0.1s, transform 0.1s; }
+.action-btn:hover { transform: translateY(-2px); }
+.action-btn[data-type="like"] { color: var(--like-blue-neon); border-color: var(--like-blue-neon); text-shadow: 0 0 5px var(--like-blue-neon); }
+.action-btn[data-type="heart"] { color: var(--pulse-red-neon); border-color: var(--pulse-red-neon); text-shadow: 0 0 5px var(--pulse-red-neon); }
+.action-btn[data-type="dislike"] { color: var(--accent-green); border-color: var(--accent-green); }
+.action-btn[onclick*="toggleComments"] { color: var(--comment-yellow-neon); border-color: var(--comment-yellow-neon); text-shadow: 0 0 5px var(--comment-yellow-neon); }
+
+.comments-section { margin-top: 20px; padding-top: 15px; border-top: 1px dashed var(--border-glitch); display: none; }
+.comment { background-color: var(--dark-panel); padding: 10px; border-radius: 6px; margin-bottom: 10px; font-size: 0.95em; border: 1px solid var(--secondary-neon-blue); color: var(--comment-yellow-neon); box-shadow: 0 0 4px rgba(0, 255, 255, 0.4); }
+.comment strong { color: var(--like-blue-neon); margin-right: 8px; text-shadow: 0 0 2px var(--like-blue-neon); }
+.comment-input { display: flex; gap: 10px; margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border-glitch); display: none; }
+.comment-input input[type="text"] { flex-grow: 1; padding: 8px 12px; border: 1px solid var(--primary-neon-purple); border-radius: 4px; background-color: var(--background-dark); color: var(--accent-green); font-family: var(--font-main); outline: none; box-shadow: 0 0 8px rgba(255, 0, 255, 0.6); transition: box-shadow 0.2s; }
+.comment-input button { background: linear-gradient(45deg, var(--comment-yellow-neon), #FFCC33); color: var(--dark-panel); border: none; padding: 8px 15px; border-radius: 20px; font-weight: bold; cursor: pointer; text-transform: uppercase; box-shadow: 0 0 10px rgba(255, 255, 102, 0.8); transition: background-color 0.2s, transform 0.1s; }
